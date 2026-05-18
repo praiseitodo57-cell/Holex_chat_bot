@@ -7,7 +7,6 @@ export function useChat() {
   const [isLoading, setIsLoading] = useState(false)
 
   async function sendMessage(text) {
-    console.log("GEMINI KEY:", import.meta.env.VITE_GEMINI_API_KEY)
     const userMessage = { role: "user", content: text }
     const updatedMessages = [...messages, userMessage]
 
@@ -33,11 +32,6 @@ export function useChat() {
           })
         }
       )
-
-      console.log("Response status:", response.status)
-      const data = await response.json()
-      console.log("Response data:", data)
-      console.log("Full error:", JSON.stringify(data))
 
       const aiMessage = {
         role: "ai",
