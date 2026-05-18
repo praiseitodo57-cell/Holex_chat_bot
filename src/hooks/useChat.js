@@ -33,6 +33,11 @@ export function useChat() {
         }
       )
 
+      
+      const data = await response.json()
+      
+      
+
       const aiMessage = {
         role: "ai",
         content: data.candidates[0].content.parts[0].text
